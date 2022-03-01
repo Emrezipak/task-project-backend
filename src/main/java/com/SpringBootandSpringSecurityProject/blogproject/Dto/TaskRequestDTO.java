@@ -16,9 +16,9 @@ public class TaskRequestDTO {
     private Task task=new Task();
 
     public TaskRequestDTO(TaskCreateRequest taskCreateRequest, User user){
-        task.setTask_date(taskCreateRequest.getDate());
-        task.setStart_time(taskCreateRequest.getStart());
-        task.setStop_time(taskCreateRequest.getStop());
+        task.setTask_date(taskCreateRequest.getStart_date());
+        task.setStart_time(taskCreateRequest.getStart_time());
+        task.setStop_time(taskCreateRequest.getStop_time());
         task.setDescription(taskCreateRequest.getDescription());
         task.setUser(user);
     }

@@ -1,19 +1,29 @@
 package com.SpringBootandSpringSecurityProject.blogproject.payload.response;
 
 import com.SpringBootandSpringSecurityProject.blogproject.user.User;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import lombok.*;
 import org.springframework.http.HttpStatus;
 
 @Getter
 @Setter
-@RequiredArgsConstructor
+@AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserResponse {
 
     private String message;
 
-    private HttpStatus httpCode;
+    private Integer httpCode;
 
     private User user;
+
+    public UserResponse(String message) {
+        this.message = message;
+    }
+    public UserResponse(String message,Integer httpCode) {
+        this.message = message;
+        this.httpCode=httpCode;
+    }
+
+
 }

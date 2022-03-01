@@ -2,6 +2,10 @@ package com.SpringBootandSpringSecurityProject.blogproject.payload.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalTime;
 import java.util.Date;
 @Data
@@ -9,16 +13,24 @@ import java.util.Date;
 @RequiredArgsConstructor
 public class TaskCreateRequest {
 
-    private Date date;
 
-    @JsonFormat(pattern = "hh:mm a")
-    private LocalTime start;
+    @NotNull
+    @JsonFormat(pattern ="yyyy-MM-dd")
+    private Date start_date;
 
-    @JsonFormat(pattern = "hh:mm a")
-    private LocalTime stop;
+    @NotNull
+    @JsonFormat(pattern = "HH:mm")
+    private LocalTime start_time;
 
-    private String user_email;
+    @NotNull
+    @JsonFormat(pattern = "HH:mm")
+    private LocalTime stop_time;
 
+    @NotNull
+    private String userEmail;
+
+    @NotEmpty
+    @Size(min=4)
     private String description;
 
 }

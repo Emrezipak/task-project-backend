@@ -1,5 +1,6 @@
 package com.SpringBootandSpringSecurityProject.blogproject.role;
 
+import com.SpringBootandSpringSecurityProject.blogproject.payload.response.RoleResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,14 @@ public class RoleService {
 
     public List<Role> getAllRole() {
         return this.roleRepository.findAll();
+    }
+
+    public Role getRoleByRoleName(String name){
+        Optional<Role> role=this.roleRepository.getByRoleName(name);
+        if(role.isPresent()){
+            return role.get();
+        }
+        return role.orElse(null);
     }
 
     public void deleteRole(long id) {

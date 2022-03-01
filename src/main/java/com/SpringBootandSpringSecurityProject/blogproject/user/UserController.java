@@ -3,6 +3,7 @@ package com.SpringBootandSpringSecurityProject.blogproject.user;
 import com.SpringBootandSpringSecurityProject.blogproject.ApiError.ApiError;
 import com.SpringBootandSpringSecurityProject.blogproject.payload.request.LoginRequest;
 import com.SpringBootandSpringSecurityProject.blogproject.payload.request.UserCreateRequest;
+import com.SpringBootandSpringSecurityProject.blogproject.payload.response.UserResponse;
 import com.SpringBootandSpringSecurityProject.blogproject.security.UserDetailsImp;
 import com.SpringBootandSpringSecurityProject.blogproject.util.CurrentUser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public User register(@Valid @RequestBody UserCreateRequest user){
+    public UserResponse register(@Valid @RequestBody UserCreateRequest user){
         return userService.addUser(user);
     }
 
@@ -51,8 +52,13 @@ public class UserController {
     }
 
     @DeleteMapping("/deleteUser/{id}")
-    public void deleteUser(@PathVariable long id){
-        this.userService.deleteUser(id);
+    public UserResponse deleteUser(@PathVariable long id){
+       return this.userService.deleteUser(id);
+    }
+
+    @PutMapping("/updateUser/{id}")
+    public UserResponse updateUser(@PathVariable long id, @RequestBody UserCreateRequest userCreateRequest){
+        return userService.updateUser(id,userCreateRequest);
     }
 
 }

@@ -28,13 +28,12 @@ public class User {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     @NotEmpty
     private String name;
 
     @NotEmpty
-    @Email
     private String email;
 
     @NotEmpty

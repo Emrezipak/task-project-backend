@@ -2,6 +2,7 @@ package com.SpringBootandSpringSecurityProject.blogproject.task;
 
 import com.SpringBootandSpringSecurityProject.blogproject.Dto.TaskRequestDTO;
 import com.SpringBootandSpringSecurityProject.blogproject.payload.request.TaskCreateRequest;
+import com.SpringBootandSpringSecurityProject.blogproject.payload.response.TaskResponse;
 import com.SpringBootandSpringSecurityProject.blogproject.user.User;
 import com.SpringBootandSpringSecurityProject.blogproject.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,14 +20,14 @@ public class TaskService {
     @Autowired
     private UserService userService;
 
-    public Task addTask(TaskCreateRequest taskRequest) {
-        User user=this.userService.getByEmail(taskRequest.getUser_email().trim());
+    public TaskResponse addTask(TaskCreateRequest taskRequest) {
+        User user=this.userService.getByEmail(taskRequest.getUserEmail().trim());
         if(user!=null){
             Task task=this.getTaskResultDto(taskRequest,user);
-            return this.taskRepository.save(task);
-
+             this.taskRepository.save(task);
+             return new TaskResponse("task successfully added",task);
         }
-       throw new NullPointerException("User bulunamadı");
+        return new TaskResponse("not found user");
     }
 
 
@@ -38,8 +39,13 @@ public class TaskService {
         return this.taskRepository.save(newTask);
     }
 
-    public void deleteTask(long id) {
-        this.taskRepository.deleteById(id);
+    public TaskResponse deleteTask(long id) {
+        Optional<Task> task=this.taskRepository.findById(id);
+        if(task.isPresent()){
+            this.taskRepository.deleteById(id);
+            return new TaskResponse("task successfully deleted");
+        }
+        return new TaskResponse("deletion failed");
     }
 
     public List<Task> getByUserTask(String email){

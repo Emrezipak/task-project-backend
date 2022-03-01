@@ -17,8 +17,8 @@ public class Role {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     @NotEmpty
-    private String name;
+    private String roleName;
 }

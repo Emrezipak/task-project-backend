@@ -17,6 +17,7 @@ public class UserRequestDTO {
         user.setName(userCreateRequest.getName());
         user.setEmail(userCreateRequest.getEmail());
         user.setPassword(userCreateRequest.getPassword());
+        //user.setRoles(userCreateRequest.getRoles());
     }
 
 }
