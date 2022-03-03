@@ -1,8 +1,9 @@
 package com.SpringBootandSpringSecurityProject.blogproject.payload.response;
 
-import com.SpringBootandSpringSecurityProject.blogproject.entity.User;
+import com.SpringBootandSpringSecurityProject.blogproject.user.User;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
+import org.springframework.http.HttpStatus;
 
 @Getter
 @Setter

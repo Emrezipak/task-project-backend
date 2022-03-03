@@ -1,4 +1,4 @@
-package com.SpringBootandSpringSecurityProject.blogproject.util;
+package com.SpringBootandSpringSecurityProject.blogproject.user;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

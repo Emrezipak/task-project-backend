@@ -1,7 +1,7 @@
 package com.SpringBootandSpringSecurityProject.blogproject.Dto;
 
 import com.SpringBootandSpringSecurityProject.blogproject.payload.request.UserCreateRequest;
-import com.SpringBootandSpringSecurityProject.blogproject.entity.User;
+import com.SpringBootandSpringSecurityProject.blogproject.user.User;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;

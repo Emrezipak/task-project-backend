@@ -1,7 +1,5 @@
-package com.SpringBootandSpringSecurityProject.blogproject.util;
+package com.SpringBootandSpringSecurityProject.blogproject.user;
 
-import com.SpringBootandSpringSecurityProject.blogproject.repository.UserRepository;
-import com.SpringBootandSpringSecurityProject.blogproject.util.UniqueEmail;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.ConstraintValidator;

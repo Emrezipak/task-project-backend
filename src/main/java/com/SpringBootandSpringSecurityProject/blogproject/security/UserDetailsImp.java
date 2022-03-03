@@ -1,14 +1,12 @@
 package com.SpringBootandSpringSecurityProject.blogproject.security;
 
-import com.SpringBootandSpringSecurityProject.blogproject.entity.User;
+import com.SpringBootandSpringSecurityProject.blogproject.user.User;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 @Data
 public class UserDetailsImp implements UserDetails {
@@ -21,11 +19,7 @@ public class UserDetailsImp implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> roles=new ArrayList<>();
-        user.getRoles().forEach((role)->{
-            roles.add(new SimpleGrantedAuthority(role.getRoleName()));
-        });
-        return roles;
+        return AuthorityUtils.createAuthorityList("Role_user");
     }
 
     @Override

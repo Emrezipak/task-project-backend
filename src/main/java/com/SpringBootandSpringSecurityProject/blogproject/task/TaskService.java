@@ -1,11 +1,10 @@
-package com.SpringBootandSpringSecurityProject.blogproject.service;
+package com.SpringBootandSpringSecurityProject.blogproject.task;
 
 import com.SpringBootandSpringSecurityProject.blogproject.Dto.TaskRequestDTO;
-import com.SpringBootandSpringSecurityProject.blogproject.entity.Task;
 import com.SpringBootandSpringSecurityProject.blogproject.payload.request.TaskCreateRequest;
 import com.SpringBootandSpringSecurityProject.blogproject.payload.response.TaskResponse;
-import com.SpringBootandSpringSecurityProject.blogproject.entity.User;
-import com.SpringBootandSpringSecurityProject.blogproject.repository.TaskRepository;
+import com.SpringBootandSpringSecurityProject.blogproject.user.User;
+import com.SpringBootandSpringSecurityProject.blogproject.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

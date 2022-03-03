@@ -1,6 +1,5 @@
-package com.SpringBootandSpringSecurityProject.blogproject.repository;
+package com.SpringBootandSpringSecurityProject.blogproject.role;
 
-import com.SpringBootandSpringSecurityProject.blogproject.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

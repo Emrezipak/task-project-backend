@@ -1,10 +1,15 @@
-package com.SpringBootandSpringSecurityProject.blogproject.entity;
+package com.SpringBootandSpringSecurityProject.blogproject.task;
 
-import com.SpringBootandSpringSecurityProject.blogproject.entity.User;
+import com.SpringBootandSpringSecurityProject.blogproject.user.User;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.time.LocalTime;
 import java.util.Date;
 
