@@ -1,7 +1,9 @@
-package com.SpringBootandSpringSecurityProject.blogproject.task;
+package com.SpringBootandSpringSecurityProject.blogproject.controller;
 
+import com.SpringBootandSpringSecurityProject.blogproject.entity.Task;
 import com.SpringBootandSpringSecurityProject.blogproject.payload.request.TaskCreateRequest;
-import com.SpringBootandSpringSecurityProject.blogproject.payload.response.TaskResponse;
+import com.SpringBootandSpringSecurityProject.blogproject.repository.TaskRepository;
+import com.SpringBootandSpringSecurityProject.blogproject.service.TaskService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

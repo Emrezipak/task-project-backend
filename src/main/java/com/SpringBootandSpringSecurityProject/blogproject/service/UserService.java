@@ -1,27 +1,20 @@
-package com.SpringBootandSpringSecurityProject.blogproject.user;
+package com.SpringBootandSpringSecurityProject.blogproject.service;
 
-import com.SpringBootandSpringSecurityProject.blogproject.ApiError.NotFoundRole;
 import com.SpringBootandSpringSecurityProject.blogproject.Dto.UserRequestDTO;
+import com.SpringBootandSpringSecurityProject.blogproject.entity.User;
 import com.SpringBootandSpringSecurityProject.blogproject.payload.request.UserCreateRequest;
-import com.SpringBootandSpringSecurityProject.blogproject.payload.response.RoleResponse;
-import com.SpringBootandSpringSecurityProject.blogproject.payload.response.TaskResponse;
 import com.SpringBootandSpringSecurityProject.blogproject.payload.response.UserResponse;
-import com.SpringBootandSpringSecurityProject.blogproject.role.Role;
-import com.SpringBootandSpringSecurityProject.blogproject.role.RoleRepository;
-import com.SpringBootandSpringSecurityProject.blogproject.role.RoleService;
-import com.SpringBootandSpringSecurityProject.blogproject.task.Task;
-import org.omg.CORBA.DynAnyPackage.Invalid;
+import com.SpringBootandSpringSecurityProject.blogproject.entity.Role;
+import com.SpringBootandSpringSecurityProject.blogproject.repository.UserRepository;
+import com.SpringBootandSpringSecurityProject.blogproject.service.RoleService;
+import org.hibernate.validator.internal.util.CollectionHelper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import javax.management.relation.RoleNotFoundException;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class UserService {
@@ -35,13 +28,21 @@ public class UserService {
     @Autowired
     private RoleService roleService;
 
+    @Value("${userservice.user.role}")
+    private String role_user;
 
     public UserResponse addUser(UserCreateRequest userCreateRequest) {
-
         UserRequestDTO userRequestDTO=new UserRequestDTO(userCreateRequest);
-        Set<Role> roleList=this.controlByRoleName(userCreateRequest.getRoles());
-        userRequestDTO.getUser().setRoles(roleList);
+        Set<Role> roleList=new HashSet<>();
+        if(userCreateRequest.getRoles()!=null && userCreateRequest.getRoles().size()!=0){
+            roleList=this.roleService.controlByRoleName(userCreateRequest.getRoles());
+        }
+        else{
+            //Set<String> şeklinde de gönderilebilir...
+             roleList=this.roleService.controlByRoleName(CollectionHelper.asSet(role_user));
+        }
 
+        userRequestDTO.getUser().setRoles(roleList);
         User user=userRequestDTO.getUser();
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
@@ -74,7 +75,7 @@ public class UserService {
         return userRepository.findById(id).map((user)->{
             user.setName(userCreateRequest.getName());
             user.setEmail(userCreateRequest.getEmail());
-            user.setRoles(controlByRoleName(userCreateRequest.getRoles()));
+            user.setRoles(roleService.controlByRoleName(userCreateRequest.getRoles()));
             user.setPassword(passwordEncoder.encode(userCreateRequest.getPassword()));
             userRepository.save(user);
             return new UserResponse("update User", HttpStatus.OK.value(),user);
@@ -83,17 +84,7 @@ public class UserService {
         });
     }
 
-    private Set<Role> controlByRoleName(Set<String> roles){
-        Set<Role> roleList=new HashSet<>();
-        for(String role:roles){
-            Role getRole=roleService.getRoleByRoleName(role);
-            if(getRole ==null){
-                 throw new NotFoundRole("not found role");
-            }
-            roleList.add(getRole);
-        }
 
-        return roleList;
 
         /*
         roles.forEach((role)->{
@@ -105,5 +96,5 @@ public class UserService {
 
          */
 
-    }
+
 }

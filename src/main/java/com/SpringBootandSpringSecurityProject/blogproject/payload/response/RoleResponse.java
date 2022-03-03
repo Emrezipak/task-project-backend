@@ -1,9 +1,7 @@
 package com.SpringBootandSpringSecurityProject.blogproject.payload.response;
 
-import com.SpringBootandSpringSecurityProject.blogproject.role.Role;
+import com.SpringBootandSpringSecurityProject.blogproject.entity.Role;
 import lombok.*;
-
-import java.util.Set;
 
 @Getter
 @Setter

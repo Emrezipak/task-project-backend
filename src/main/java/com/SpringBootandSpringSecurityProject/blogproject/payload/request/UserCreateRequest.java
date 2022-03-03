@@ -1,12 +1,10 @@
 package com.SpringBootandSpringSecurityProject.blogproject.payload.request;
 
-import com.SpringBootandSpringSecurityProject.blogproject.role.Role;
-import com.SpringBootandSpringSecurityProject.blogproject.user.UniqueEmail;
+import com.SpringBootandSpringSecurityProject.blogproject.util.UniqueEmail;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;

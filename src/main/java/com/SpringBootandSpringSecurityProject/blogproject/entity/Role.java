@@ -1,4 +1,4 @@
-package com.SpringBootandSpringSecurityProject.blogproject.role;
+package com.SpringBootandSpringSecurityProject.blogproject.entity;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
