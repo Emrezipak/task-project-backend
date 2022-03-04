@@ -1,10 +1,10 @@
 package com.SpringBootandSpringSecurityProject.blogproject.payload.request;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class LoginRequest {
 
     private String email;

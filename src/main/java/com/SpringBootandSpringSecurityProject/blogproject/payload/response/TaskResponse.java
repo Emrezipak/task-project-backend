@@ -1,6 +1,6 @@
 package com.SpringBootandSpringSecurityProject.blogproject.payload.response;
 
-import com.SpringBootandSpringSecurityProject.blogproject.task.Task;
+import com.SpringBootandSpringSecurityProject.blogproject.entity.Task;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
 

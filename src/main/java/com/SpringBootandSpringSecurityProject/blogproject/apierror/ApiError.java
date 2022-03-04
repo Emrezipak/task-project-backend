@@ -1,12 +1,10 @@
-package com.SpringBootandSpringSecurityProject.blogproject.ApiError;
+package com.SpringBootandSpringSecurityProject.blogproject.apierror;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
-import java.time.LocalDateTime;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
 @Data

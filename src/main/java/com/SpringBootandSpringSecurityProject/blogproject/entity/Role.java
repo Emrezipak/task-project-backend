@@ -1,8 +1,9 @@
-package com.SpringBootandSpringSecurityProject.blogproject.role;
+package com.SpringBootandSpringSecurityProject.blogproject.entity;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +14,7 @@ import javax.validation.constraints.NotEmpty;
 @Getter
 @Setter
 @RequiredArgsConstructor
+@ToString
 public class Role {
 
     @Id

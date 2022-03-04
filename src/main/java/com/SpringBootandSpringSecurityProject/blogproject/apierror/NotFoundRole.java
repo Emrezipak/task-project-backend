@@ -1,4 +1,4 @@
-package com.SpringBootandSpringSecurityProject.blogproject.ApiError;
+package com.SpringBootandSpringSecurityProject.blogproject.apierror;
 
 public class NotFoundRole extends RuntimeException {
 

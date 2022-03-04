@@ -1,22 +1,15 @@
-package com.SpringBootandSpringSecurityProject.blogproject.user;
+package com.SpringBootandSpringSecurityProject.blogproject.entity;
 
-import com.SpringBootandSpringSecurityProject.blogproject.role.Role;
-import com.SpringBootandSpringSecurityProject.blogproject.task.Task;
+import com.SpringBootandSpringSecurityProject.blogproject.entity.Role;
+import com.SpringBootandSpringSecurityProject.blogproject.entity.Task;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 

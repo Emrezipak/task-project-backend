@@ -1,15 +1,9 @@
-package com.SpringBootandSpringSecurityProject.blogproject.task;
+package com.SpringBootandSpringSecurityProject.blogproject.entity;
 
-import com.SpringBootandSpringSecurityProject.blogproject.user.User;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.time.LocalTime;
 import java.util.Date;
 
@@ -19,7 +13,7 @@ public class Task {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     @Temporal(value = TemporalType.DATE)
     private Date task_date;

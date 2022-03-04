@@ -1,4 +1,4 @@
-package com.SpringBootandSpringSecurityProject.blogproject.ApiError;
+package com.SpringBootandSpringSecurityProject.blogproject.apierror;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.error.ErrorAttributeOptions;

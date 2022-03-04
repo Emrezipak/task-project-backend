@@ -1,12 +1,14 @@
-package com.SpringBootandSpringSecurityProject.blogproject.role;
+package com.SpringBootandSpringSecurityProject.blogproject.controller;
 
+import com.SpringBootandSpringSecurityProject.blogproject.entity.Role;
+import com.SpringBootandSpringSecurityProject.blogproject.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("roles")
+@RequestMapping("api/roles")
 public class RoleController {
 
     @Autowired

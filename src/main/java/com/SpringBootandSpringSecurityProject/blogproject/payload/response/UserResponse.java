@@ -1,9 +1,8 @@
 package com.SpringBootandSpringSecurityProject.blogproject.payload.response;
 
-import com.SpringBootandSpringSecurityProject.blogproject.user.User;
+import com.SpringBootandSpringSecurityProject.blogproject.entity.User;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
-import org.springframework.http.HttpStatus;
 
 @Getter
 @Setter
@@ -20,6 +19,7 @@ public class UserResponse {
     public UserResponse(String message) {
         this.message = message;
     }
+
     public UserResponse(String message,Integer httpCode) {
         this.message = message;
         this.httpCode=httpCode;

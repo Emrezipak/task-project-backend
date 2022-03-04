@@ -1,11 +1,15 @@
-package com.SpringBootandSpringSecurityProject.blogproject.role;
+package com.SpringBootandSpringSecurityProject.blogproject.service;
 
-import com.SpringBootandSpringSecurityProject.blogproject.payload.response.RoleResponse;
+import com.SpringBootandSpringSecurityProject.blogproject.apierror.NotFoundRole;
+import com.SpringBootandSpringSecurityProject.blogproject.entity.Role;
+import com.SpringBootandSpringSecurityProject.blogproject.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class RoleService {
@@ -36,4 +40,18 @@ public class RoleService {
         }
         throw new NullPointerException("Role bulunamadı");
     }
+
+    public Set<Role> controlByRoleName(Set<String> roles) {
+        Set<Role> roleList = new HashSet<>();
+        for (String role : roles) {
+            Role getRole = getRoleByRoleName(role);
+            if (getRole == null) {
+                throw new NotFoundRole("not found role");
+            }
+            roleList.add(getRole);
+        }
+
+        return roleList;
+    }
+
 }

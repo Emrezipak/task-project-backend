@@ -1,12 +1,16 @@
 package com.SpringBootandSpringSecurityProject.blogproject.security;
 
-import com.SpringBootandSpringSecurityProject.blogproject.user.User;
+import com.SpringBootandSpringSecurityProject.blogproject.entity.Role;
+import com.SpringBootandSpringSecurityProject.blogproject.entity.User;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 public class UserDetailsImp implements UserDetails {
@@ -19,7 +23,11 @@ public class UserDetailsImp implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return AuthorityUtils.createAuthorityList("Role_user");
+        Set<GrantedAuthority> roles = new HashSet<>();
+        user.getRoles().forEach((role) -> {
+            roles.add(new SimpleGrantedAuthority(role.getRoleName()));
+        });
+        return roles;
     }
 
     @Override

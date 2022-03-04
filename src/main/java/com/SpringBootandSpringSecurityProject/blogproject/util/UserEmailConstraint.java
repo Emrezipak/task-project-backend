@@ -1,5 +1,6 @@
-package com.SpringBootandSpringSecurityProject.blogproject.user;
+package com.SpringBootandSpringSecurityProject.blogproject.util;
 
+import com.SpringBootandSpringSecurityProject.blogproject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.ConstraintValidator;
