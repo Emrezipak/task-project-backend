@@ -71,6 +71,7 @@ public class UserService {
         return this.userRepository.getByEmail(email);
     }
 
+    /*
     public UserResponse updateUser(long id, UserCreateRequest userCreateRequest){
 
         return userRepository.findById(id).map((user)->{
@@ -84,6 +85,7 @@ public class UserService {
             return new UserResponse("not found user",HttpStatus.NOT_FOUND.value());
         });
     }
+     */
 
 
 }

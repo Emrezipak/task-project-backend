@@ -45,6 +45,7 @@ public class RoleService {
         Set<Role> roleList = new HashSet<>();
         for (String role : roles) {
             Role getRole = getRoleByRoleName(role);
+            System.out.println(roles);
             if (getRole == null) {
                 throw new NotFoundRole("not found role");
             }

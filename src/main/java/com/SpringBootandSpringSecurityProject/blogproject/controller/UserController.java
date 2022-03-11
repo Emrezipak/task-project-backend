@@ -45,10 +45,12 @@ public class UserController {
        return this.userService.deleteUser(id);
     }
 
+    /*
     @PreAuthorize("hasAuthority('Admin')")
     @PutMapping("/updateUser/{id}")
     public UserResponse updateUser(@PathVariable long id, @RequestBody UserCreateRequest userCreateRequest){
         return userService.updateUser(id,userCreateRequest);
     }
+     */
 
 }

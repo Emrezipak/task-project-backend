@@ -49,7 +49,7 @@ public class TaskService {
         return new TaskResponse("deletion failed");
     }
 
-    public List<Task> getByUserTask(String email){
+    public List<Task> getTaskByUserEmail(String email){
         return this.taskRepository.getByUser_Email(email);
     }
 

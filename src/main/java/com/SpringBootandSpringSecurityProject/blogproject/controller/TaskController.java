@@ -26,7 +26,7 @@ public class TaskController {
     public ResponseEntity<?> addTask(@Valid @RequestBody TaskCreateRequest task){
             return ResponseEntity.ok(this.taskService.addTask(task));
     }
-    @PreAuthorize("hasAuthority('Admin') or hasAuthority('User')")
+    @PreAuthorize("hasAuthority('Admin')")
     @GetMapping("/getAllTask")
     public List<Task> getAllTask(){
         return this.taskService.getAllTask();
@@ -44,9 +44,9 @@ public class TaskController {
        return ResponseEntity.ok(this.taskService.deleteTask(id));
     }
 
-    @PreAuthorize("hasAuthority('Admin')")
+    @PreAuthorize("hasAuthority('Admin') or hasAuthority('User')")
     @GetMapping("/getTaskByUser")
     public List<Task> getByUserTask(@RequestParam String email){
-        return this.taskService.getByUserTask(email);
+        return this.taskService.getTaskByUserEmail(email);
     }
 }
