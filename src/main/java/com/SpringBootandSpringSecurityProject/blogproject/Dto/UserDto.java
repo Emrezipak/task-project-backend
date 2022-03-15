@@ -9,11 +9,11 @@ import lombok.ToString;
 @Data
 @RequiredArgsConstructor
 @ToString
-public class UserRequestDTO {
+public class UserDto {
 
     private User user=new User();
 
-    public UserRequestDTO(UserCreateRequest userCreateRequest){
+    public UserDto(UserCreateRequest userCreateRequest){
         user.setName(userCreateRequest.getName());
         user.setEmail(userCreateRequest.getEmail());
         user.setPassword(userCreateRequest.getPassword());

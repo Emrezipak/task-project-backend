@@ -1,6 +1,6 @@
 package com.SpringBootandSpringSecurityProject.blogproject.service;
 
-import com.SpringBootandSpringSecurityProject.blogproject.Dto.UserRequestDTO;
+import com.SpringBootandSpringSecurityProject.blogproject.Dto.UserDto;
 import com.SpringBootandSpringSecurityProject.blogproject.entity.User;
 import com.SpringBootandSpringSecurityProject.blogproject.payload.request.UserCreateRequest;
 import com.SpringBootandSpringSecurityProject.blogproject.payload.response.UserResponse;
@@ -33,7 +33,7 @@ public class UserService {
 
 
     public UserResponse addUser(UserCreateRequest userCreateRequest) {
-        UserRequestDTO userRequestDTO=new UserRequestDTO(userCreateRequest);
+        UserDto userRequestDTO=new UserDto(userCreateRequest);
         Set<Role> roleList=new HashSet<>();
         if(userCreateRequest.getRoles()!=null && userCreateRequest.getRoles().size()!=0){
             roleList=this.roleService.controlByRoleName(userCreateRequest.getRoles());

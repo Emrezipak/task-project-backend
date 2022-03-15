@@ -11,11 +11,11 @@ import lombok.ToString;
 @Data
 @RequiredArgsConstructor
 @ToString
-public class TaskRequestDTO {
+public class TaskDto {
 
     private Task task=new Task();
 
-    public TaskRequestDTO(TaskCreateRequest taskCreateRequest, User user){
+    public TaskDto(TaskCreateRequest taskCreateRequest, User user){
         task.setTask_date(taskCreateRequest.getStart_date());
         task.setStart_time(taskCreateRequest.getStart_time());
         task.setStop_time(taskCreateRequest.getStop_time());
