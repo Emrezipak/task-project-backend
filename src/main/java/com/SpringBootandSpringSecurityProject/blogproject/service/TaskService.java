@@ -1,6 +1,6 @@
 package com.SpringBootandSpringSecurityProject.blogproject.service;
 
-import com.SpringBootandSpringSecurityProject.blogproject.Dto.TaskRequestDTO;
+import com.SpringBootandSpringSecurityProject.blogproject.Dto.TaskDto;
 import com.SpringBootandSpringSecurityProject.blogproject.entity.Task;
 import com.SpringBootandSpringSecurityProject.blogproject.payload.request.TaskCreateRequest;
 import com.SpringBootandSpringSecurityProject.blogproject.payload.response.TaskResponse;
@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class TaskService {
@@ -33,7 +34,7 @@ public class TaskService {
 
 
     public List<Task> getAllTask() {
-        return this.taskRepository.findAll();
+        return taskRepository.findAll();
     }
 
     public Task updateTask(Task newTask) {
@@ -54,7 +55,7 @@ public class TaskService {
     }
 
     private Task getTaskResultDto(TaskCreateRequest taskCreateRequest,User user){
-        TaskRequestDTO taskRequestDTO=new TaskRequestDTO(taskCreateRequest,user);
+        TaskDto taskRequestDTO=new TaskDto(taskCreateRequest,user);
         return taskRequestDTO.getTask();
     }
 
