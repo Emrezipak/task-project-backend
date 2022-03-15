@@ -33,6 +33,7 @@ public class AuthController {
     @Autowired
     private CreateToken createToken;
 
+    @CrossOrigin
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest){
         Authentication authentication=authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(),loginRequest.getPassword()));
@@ -43,6 +44,7 @@ public class AuthController {
         return ResponseEntity.ok(new JwtResponse(user.getUser(),token,roles));
     }
 
+    @CrossOrigin
     @PostMapping("/register")
     public UserResponse register(@Valid @RequestBody UserCreateRequest user){
         return userService.addUser(user);
