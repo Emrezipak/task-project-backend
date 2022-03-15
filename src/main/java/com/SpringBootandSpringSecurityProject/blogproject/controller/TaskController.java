@@ -29,7 +29,7 @@ public class TaskController {
     public ResponseEntity<?> addTask(@Valid @RequestBody TaskCreateRequest task){
             return ResponseEntity.ok(this.taskService.addTask(task));
     }
-    //@PreAuthorize("hasAuthority('Admin')")
+    @PreAuthorize("hasAuthority('Admin')")
     @GetMapping("/getAllTask")
     public List<Task> getAllTask(){
          return this.taskService.getAllTask();

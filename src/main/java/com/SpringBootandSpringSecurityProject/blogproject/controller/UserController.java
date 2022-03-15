@@ -22,7 +22,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    //@PreAuthorize("hasAuthority('Admin')")
+    @PreAuthorize("hasAuthority('Admin')")
     @GetMapping("/getAll")
     public List<User> getAllUser(){
         return this.userService.getAllUser();
