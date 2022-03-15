@@ -20,6 +20,7 @@ import javax.validation.Valid;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@CrossOrigin(origins = "https://task-project-frontend.herokuapp.com/", maxAge = 3600)
 @RestController
 @RequestMapping("api/auth")
 public class AuthController {
@@ -33,7 +34,6 @@ public class AuthController {
     @Autowired
     private CreateToken createToken;
 
-    @CrossOrigin
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest){
         Authentication authentication=authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getEmail(),loginRequest.getPassword()));
@@ -44,7 +44,6 @@ public class AuthController {
         return ResponseEntity.ok(new JwtResponse(user.getUser(),token,roles));
     }
 
-    @CrossOrigin
     @PostMapping("/register")
     public UserResponse register(@Valid @RequestBody UserCreateRequest user){
         return userService.addUser(user);
