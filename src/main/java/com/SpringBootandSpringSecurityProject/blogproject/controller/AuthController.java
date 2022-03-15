@@ -20,7 +20,7 @@ import javax.validation.Valid;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@CrossOrigin(origins = "https://task-project-frontend.herokuapp.com/", maxAge = 3600)
+@CrossOrigin
 @RestController
 @RequestMapping("api/auth")
 public class AuthController {
