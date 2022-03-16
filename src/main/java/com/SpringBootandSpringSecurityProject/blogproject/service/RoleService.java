@@ -43,14 +43,13 @@ public class RoleService {
 
     public Set<Role> controlByRoleName(Set<String> roles) {
         Set<Role> roleList = new HashSet<>();
-        for (String role : roles) {
+        roles.forEach((role)->{
             Role getRole = getRoleByRoleName(role);
-            System.out.println(roles);
-            if (getRole == null) {
+            if(getRole==null){
                 throw new NotFoundRole("not found role");
             }
             roleList.add(getRole);
-        }
+        });
 
         return roleList;
     }
